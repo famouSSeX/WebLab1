@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  php: 
+    image: php:7.4-fpm
+    volumes:
+      - "./src:/var/www/html"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - "./src:/var/www/html"
+      - "./docker/nginx/conf.d:/etc/nginx/conf.d"
